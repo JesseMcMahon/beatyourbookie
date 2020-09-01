@@ -1,6 +1,35 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
-// const pickSchema = require("./pickSchema");
+
+const PickSchema = new mongoose.Schema({
+  user: {
+    type: String,
+    required: true,
+  },
+  date: {
+    type: String,
+    required: true,
+  },
+  leaguePicked: {
+    type: String,
+  },
+  game: {
+    type: String,
+    required: true,
+  },
+  teamPicked: {
+    type: String,
+    required: true,
+  },
+  pickType: {
+    type: String,
+    required: true,
+  },
+  isUpcoming: {
+    type: Boolean,
+    default: true,
+  },
+});
 
 const UserSchema = new mongoose.Schema({
   name: {
@@ -47,12 +76,11 @@ const UserSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  rank: {
+    type: Number,
+  },
 
-  //   pickHistory: [
-  //     {
-  //       pickSchema,
-  //     },
-  //   ],
+  pickHistory: [PickSchema],
 });
 
 module.exports = User = mongoose.model("user", UserSchema);
