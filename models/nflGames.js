@@ -23,7 +23,7 @@ const nflGames = [
     startDate: 251,
     startTime: 1300,
     isCompleted: false,
-    homeTeamScore: 21,
+    homeTeamScore: 22,
     awayTeamScore: 14,
     winner: null,
   },
